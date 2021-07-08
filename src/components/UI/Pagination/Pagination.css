@@ -1,0 +1,21 @@
+.pagination-container {
+  margin-bottom: 20px;
+  width: 60%;
+  margin: 0px auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn {
+  padding: 4px 8px;
+  margin: 0 6px;
+  cursor: pointer;
+  border: 1px solid #888;
+  font: inherit;
+}
+
+.pagination-btn:hover,
+.pagination-btn-active {
+  background-color: var(--second-color);
+}

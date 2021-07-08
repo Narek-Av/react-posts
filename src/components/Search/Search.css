@@ -1,0 +1,11 @@
+.search-content {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-content input {
+  padding: 6px 8px;
+}

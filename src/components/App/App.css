@@ -1,0 +1,43 @@
+.app-container {
+  background-color: #f7f7f7;
+  position: relative;
+  padding-top: 2.2em;
+}
+
+.show-column {
+  position: fixed;
+  right: 3em;
+  top: 1.5em;
+}
+
+.average-group {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+.btn {
+  border: 1px solid var(--second-color);
+  outline: none;
+  cursor: pointer;
+  color: var(--second-color);
+  background-color: #999;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  font-size: 24px;
+  padding: 2px 8px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--second-color);
+  color: #999;
+}
+
+.toggle-btn {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 6px 12px;
+}

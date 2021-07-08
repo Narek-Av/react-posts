@@ -1,0 +1,46 @@
+:root {
+  --second-color: #ffc107;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4f5255;
+  font-size: 16px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #333;
+}
+h3 {
+  color: #444;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 4px 8px;
+  margin: 0;
+  outline: none;
+  border: 1px solid #777;
+  border-radius: 3px;
+}
+input:focus {
+  background-color: #eee;
+  border-color: #333;
+}
