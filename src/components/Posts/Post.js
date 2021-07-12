@@ -1,9 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { likeComment, newComment } from "../../store/actions";
 import Comments from "../Comments/Comments";
 
 import "./Post.css";
 
-const Post = ({ post, likeComment, addNewComment }) => {
+const Post = ({ post }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="post">
       <div className="post-item">
@@ -11,13 +15,14 @@ const Post = ({ post, likeComment, addNewComment }) => {
         <div className="post-content">
           <p>{post.content}</p>
         </div>
-
         <Comments
           comments={post.comments}
           addNewComment={(comment, commentId) =>
-            addNewComment(comment, commentId)
+            dispatch(newComment({ postId: post.id, commentId, comment }))
           }
-          likeComment={likeComment}
+          likeComment={(commentId, replyId) =>
+            dispatch(likeComment({ postId: post.id, commentId, replyId }))
+          }
         />
       </div>
     </div>
