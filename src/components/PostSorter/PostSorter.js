@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectPost } from "../../store/actions";
+import { selectPost, hidePost } from "../../store/actions";
 
 import "./PostSorter.css";
 
 const PostSorter = () => {
   const [reverse, setReverse] = useState(false);
-  const { posts, selectedPosts } = useSelector(state => state);
+  const posts = useSelector(({ posts }) => posts);
+  const selectedPosts = useSelector(({ selectedPosts }) => selectedPosts);
   const [sortedPosts, setSortedPosts] = useState([]);
   const dispatch = useDispatch();
 
@@ -42,7 +43,7 @@ const PostSorter = () => {
     }
 
     if (id) {
-      dispatch(selectPost({ postId: id, hide: true }));
+      dispatch(hidePost(id));
       setSortedPosts(sortedPosts.filter(post => post.id !== id));
     } else {
       dispatch(selectPost(selectedPost.id));
@@ -52,9 +53,7 @@ const PostSorter = () => {
   };
 
   const clearList = () => {
-    sortedPosts.forEach(post =>
-      dispatch(selectPost({ postId: post.id, hide: true }))
-    );
+    sortedPosts.forEach(post => dispatch(hidePost(post.id)));
     setSortedPosts([]);
   };
 

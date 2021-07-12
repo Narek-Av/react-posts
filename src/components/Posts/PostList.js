@@ -8,7 +8,8 @@ import Post from "./Post";
 const PAGE_ITEM_COUNT = 4;
 
 const PostList = () => {
-  const { posts, selectedPosts } = useSelector(state => state);
+  const posts = useSelector(({ posts }) => posts);
+  const selectedPosts = useSelector(({ selectedPosts }) => selectedPosts);
   const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 

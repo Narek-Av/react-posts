@@ -10,21 +10,19 @@ const Pagination = ({
 }) => {
   const renderButtons = () => {
     const pageCount = Math.ceil(itemCount / pageItemCount);
-    const btns = [];
 
-    for (let i = 1; i <= pageCount; i++) {
-      btns.push(
+    const btns = [...Array(pageCount).keys()].map(idx => 
         <button
           className={`pagination-btn${
-            i === currentPage ? " pagination-btn-active" : ""
+            idx + 1 === currentPage ? " pagination-btn-active" : ""
           }`}
-          onClick={() => postPagination(i)}
-          key={i}
+          onClick={() => postPagination(idx + 1)}
+          key={idx}
         >
-          {i}
+          {idx + 1}
         </button>
-      );
-    }
+    )
+
     return btns;
   };
 

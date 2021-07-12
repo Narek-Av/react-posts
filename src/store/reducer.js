@@ -1,4 +1,4 @@
-import { NEW_COMMENT, SELECT_POST, LIKE_COMMENT } from "./types";
+import { NEW_COMMENT, SELECT_POST, LIKE_COMMENT, HIDE_POST } from "./types";
 
 import dummyPosts from "../dummyPosts.json";
 
@@ -12,9 +12,12 @@ export const reducer = (state = initialState, action) => {
     case SELECT_POST:
       return {
         ...state,
-        selectedPosts: !action.payload.hide
-          ? [...state.selectedPosts, action.payload]
-          : state.selectedPosts.filter(id => id !== action.payload.postId),
+        selectedPosts: [...state.selectedPosts, action.payload],
+      };
+    case HIDE_POST:
+      return {
+        ...state,
+        selectedPosts: state.selectedPosts.filter(id => id !== action.payload),
       };
     case NEW_COMMENT:
       const { postId, commentId, comment } = action.payload;
